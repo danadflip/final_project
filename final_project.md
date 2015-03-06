@@ -1,0 +1,3 @@
+#Final Project/Drive Safe.ly
+
+I would like to create a web application that would assist people road trippin'. A person would enter their starting location, their destination, and either a leave by or arrive by time.  They would then receieve a list of directions to their destination (like Google Maps does already) but it would include a weather prediction for the time that they are at that location; example: I want to drive from Cleveland to New York and I want to know what the weather conditions will be like in Pennsylvania when I drive through it.  The weather will be displayed as either a small image (like a rain cloud or snowing, etc.) or just a sentence about the conditions (Partly Sunny or 70% chance of snow or Snowing: approx 5 inch accumulation).  

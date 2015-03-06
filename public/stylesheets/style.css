@@ -1,0 +1,90 @@
+html{
+  background-image: url("http://38.media.tumblr.com/860f7bd52f9e8ff3834c7890ac429c36/tumblr_mezgriIzub1rsq9eyo1_500.gif");
+
+}
+
+
+#my_map{
+ height: 30em;
+ width: 75%;
+ position: relative;
+ left: 10em;
+}
+
+.directions_weather{
+  display: inline-block;
+  width: 45%;
+  /*border: 1px solid black;*/
+  /*right: 0px;*/
+  background-color: white;
+}
+
+.driving_input{
+  position: relative;
+  background-color: white;
+  height:15%;
+  top: 15px;
+}
+#direction_inputs{
+  padding: 5px;
+  margin: 5px;
+}
+
+
+ /* ========================= */
+  /* Navagation Bar */
+  /* ========================= */
+
+nav{
+  position: fixed;
+  height:13%;
+  width:100%;
+  margin: 0 auto;
+  top: 0;
+  z-index: 99;
+  /*border-style: solid;*/
+  background-color: grey;
+}
+
+
+.logo{
+  display: inline-block;
+  width: 49%;
+
+}
+
+.logo2{
+  margin-left: 1.5em;
+  color: black;
+}
+.menu{
+ /* position: relative;
+  right: 10px;*/
+   margin-left: 7em;
+  margin-top: 1em;
+  color:white;
+}
+
+.menu li{
+  display: inline-block;
+  padding:1em;
+  text-decoration: none;
+  font-size: 19px;
+}
+
+.menu a{
+  color: black;
+}
+
+.menu a:hover{
+  color: white;
+}
+
+#links:hover{
+  background-color: black;
+}
+
+h1{
+
+  color:white;
+}

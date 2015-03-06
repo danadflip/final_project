@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Drive Safe.ly</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script type="text/javascript"
+  src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+  <script type="text/javascript" src="gmap3.min.js"> </script>
+  <link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" media="all">
+  <link href="/stylesheets/style.css" rel="stylesheet" type="text/css" media="all">
+
+</head>
+<body>
+  <nav>
+    <div class = "logo">
+      <h1 class = "logo2">Drive Safe.ly</h1>
+    </div>
+    <div class="logo">
+      <ul class = "menu">
+        <li id = "links"><a href="/">Home</a></li>
+        <li id = "links"><a href="#map">Map</a></li>
+        <li id = "links"><a href="#directions_weather">Directions/Weather</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="driving_input">
+    <h1>Input</h1>
+    <form id="direction_inputs" action="form_action.asp">
+      Origin: <input type="text" id="origin" name="origin">
+      Destination: <input type="text" id="destination" name="destination">
+      <input type="submit" id="directions-submit" value="Submit">
+    </form>
+  </div>
+
+  <a name="map"> </a>
+  <div id="my_map"></div>
+  <a name="directions_weather"> </a>
+  <div class ="directions_weather"></div>
+
+
+  <script>
+$("#direction_inputs").on("submit", function(e){
+  e.preventDefault();
+   var $origin = $("#origin").val();
+   var $destination = $("#destination").val();
+  console.log($origin);
+  console.log($destination);
+
+  $('#my_map').gmap3({
+  getroute:{
+    options:{
+        origin: $origin,
+        destination:$destination,
+        travelMode: google.maps.DirectionsTravelMode.DRIVING
+    },
+    callback: function(results){
+      if (!results) return;
+      $(this).gmap3({
+        map:{
+          options:{
+            zoom: 13,
+            center: [-33.879, 151.235]
+          }
+        },
+        // adds traffic layer
+        trafficlayer:{
+        },
+        // renders the directions to a class directions added after the div #my_map
+        directionsrenderer:{
+          container: $(document.createElement("div")).addClass("directions_weather").insertAfter($("#my_map")),
+          options:{
+            directions:results
+          }
+        }
+      });
+    }
+  }
+});
+
+});
+
+
+  </script>
+
+</body>
+</html>
+
+

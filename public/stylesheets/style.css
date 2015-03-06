@@ -1,29 +1,35 @@
 html{
-  background-image: url("http://38.media.tumblr.com/860f7bd52f9e8ff3834c7890ac429c36/tumblr_mezgriIzub1rsq9eyo1_500.gif");
+  /*background-image: url("http://38.media.tumblr.com/860f7bd52f9e8ff3834c7890ac429c36/tumblr_mezgriIzub1rsq9eyo1_500.gif");*/
 
 }
 
 
 #my_map{
- height: 30em;
- width: 75%;
- position: relative;
- left: 10em;
+  position: relative;
+  top: 20px;
+  height: 30em;
+  width: 75%;
+  left: 10em;
 }
 
 .directions_weather{
+  position: relative;
+  top: 3em;
   display: inline-block;
   width: 45%;
-  /*border: 1px solid black;*/
-  /*right: 0px;*/
   background-color: white;
 }
+
+ /* ========================= */
+  /* Direction Input Bar */
+  /* ========================= */
 
 .driving_input{
   position: relative;
   background-color: white;
   height:15%;
   top: 15px;
+  border: 1px solid black;
 }
 #direction_inputs{
   padding: 5px;

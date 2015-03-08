@@ -44,6 +44,7 @@ PLATFORMS
 
 DEPENDENCIES
   httparty
+  json
   pry
   redis
   rest-client

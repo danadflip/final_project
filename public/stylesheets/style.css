@@ -3,6 +3,11 @@ html{
 
 }
 
+.weather{
+  float: right;
+  position:relative;
+  top:30em;
+}
 
 #my_map{
   position: relative;

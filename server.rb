@@ -17,17 +17,31 @@ module Drive
     end
 
     get('/weather') do
-      response_by_coordinates = HTTParty.get("http://api.wunderground.com/api/d9ccd086534d5989/geolookup/q/#{params["startLat"]},#{params["startLong"]}.json")
-      requesturl = response_by_coordinates["location"]["requesturl"]
-      response_by_city = HTTParty.get("http://api.wunderground.com/api/d9ccd086534d5989/hourly/q/#{requesturl}.json")
+      # first location
+      first_response_by_city = HTTParty.get("http://api.wunderground.com/api/d9ccd086534d5989/hourly/q/#{params["startLat"]},#{params["startLong"]}.json")
       # weather conditions:
-      condition = response_by_city["hourly_forecast"][0]["condition"]
-      temp = response_by_city["hourly_forecast"][0]["temp"]
-      snow = response_by_city["hourly_forecast"][0]["snow"]
-      weather_report = {condition: condition, snow: snow, temp: temp}
+      first_condition = first_response_by_city["hourly_forecast"][0]["condition"]
+      first_temp = first_response_by_city["hourly_forecast"][0]["temp"]
+      first_snow = first_response_by_city["hourly_forecast"][0]["snow"]
 
+      # last location
+      last_response_by_city = HTTParty.get("http://api.wunderground.com/api/d9ccd086534d5989/hourly/q/#{params["endLat"]},#{params["endLong"]}.json")
+      # weather conditions:
+      last_condition = last_response_by_city["hourly_forecast"][0]["condition"]
+      last_temp = last_response_by_city["hourly_forecast"][0]["temp"]
+      last_snow = last_response_by_city["hourly_forecast"][0]["snow"]
+
+    params["durationOfTripInSeconds"]
+
+
+
+
+
+
+      first_weather_report = {first_condition: first_condition, first_snow: first_snow, first_temp: first_temp, last_temp: last_temp, last_snow: last_snow, last_condition: last_condition}
+      binding.pry
       # render(json: temp)
-      weather_report.to_json
+      first_weather_report.to_json
     end
 
 

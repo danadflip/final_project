@@ -7,6 +7,14 @@ html{
   float: right;
   position:relative;
   top:30em;
+  width:50% ;
+}
+
+.last_weather{
+  float: right;
+  position:relative;
+  top:30em;
+  width:50% ;
 }
 
 #my_map{

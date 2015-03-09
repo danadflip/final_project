@@ -19,7 +19,7 @@ html{
 
 #my_map{
   position: relative;
-  top: 20px;
+  top: 20%;
   height: 30em;
   width: 75%;
   left: 10em;
@@ -27,13 +27,42 @@ html{
 
 .directions_weather{
   position: relative;
-  top: 3em;
+  top: 15em;
   display: inline-block;
   width: 45%;
   background-color: white;
 }
+/*
+.weather{
+  float: right;
+  position:relative;
+  top:30em;
+  width:50% ;
+  border: 1px solid red;
+}
 
- /* ========================= */
+
+#my_map{
+  position: relative;
+  top: 20%;
+  height: 30em;
+  width: 75%;
+  left: 10em;
+  border: 1px solid black;
+}
+
+
+
+.directions_weather{
+  position: relative;
+  top: 10em;
+  display: inline-block;
+  width: 45%;
+  background-color: white;
+  border: 1px solid black;
+}
+*/
+ /* =========================
   /* Direction Input Bar */
   /* ========================= */
 
@@ -41,20 +70,20 @@ html{
   position: relative;
   background-color: white;
   height:15%;
-  top: 15px;
+  top: 15%;
   border: 1px solid black;
 }
-#direction_inputs{
+/*#direction_inputs{
   padding: 5px;
   margin: 5px;
-}
+}*/
 
 
  /* ========================= */
   /* Navagation Bar */
   /* ========================= */
 
-nav{
+/*nav{
   position: fixed;
   height:13%;
   width:100%;
@@ -62,11 +91,11 @@ nav{
   top: 0;
   z-index: 99;
   /*border-style: solid;*/
-  background-color: grey;
-}
+  /*background-color: grey;*/
+/*}*/
 
 
-.logo{
+/*.logo{
   display: inline-block;
   width: 49%;
 
@@ -79,7 +108,7 @@ nav{
 .menu{
  /* position: relative;
   right: 10px;*/
-   margin-left: 7em;
+   /*margin-left: 7em;
   margin-top: 1em;
   color:white;
 }
@@ -106,4 +135,4 @@ nav{
 h1{
 
   color:white;
-}
+}*/

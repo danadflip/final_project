@@ -95,50 +95,42 @@ $("#direction_inputs").on("submit", function(e){
           travelMode: google.maps.DirectionsTravelMode.DRIVING
       },
     callback: function(results){
-      var durationOfTripInSeconds = results.routes[0].legs[0].duration.value;
-      var startLat  = results.routes[0].legs[0].steps[0]["start_location"]["k"];
-      var startLong = results.routes[0].legs[0].steps[0]["start_location"]["D"];
-      var endLat  = results.routes[0].legs[0]["end_location"]["k"];
-      var endLong = results.routes[0].legs[0]["end_location"]["D"];
+
+      var trip                    = results.routes[0].legs[0],
+          durationOfTripInSeconds = trip.duration.value,
+          interval                = 7200,
+          secondsFromNow          = 0,
+          secondsToInterval       = interval,
+          durations;
+
+          // get the list of durations in seconds for each step
+          durations = trip.steps.map(function(step) {
+            return step.duration.value;
+          });
+
+          // combine those durations so that each step is a number
+          // of seconds from now
+          for(var i=1,len=durations.length;i<len;i++) {
+            durations[i] = durations[i] + durations[i-1];
+          }
+// do the icons in the getWeather = it is called in every point, maybe getweather - icon with lat long, given lat long
+          getWeather(coordinatesOf(trip.start_location), 0);
+          for(var i=0,len=durations.length-1;i<len;) {
+            if (durations[i] > secondsToInterval) {
+              console.log("print when step " + i + " and interval " + secondsToInterval);
+              getWeather(coordinatesOf(trip.steps[i].end_location), secondsToInterval);
+              secondsToInterval += interval;
+            } else {
+              i++;
+            }
+          }
+          getWeather(coordinatesOf(trip.end_location), trip.duration.value)
 
 //       steps.forEach(function(step){
 // console.log(step.duration.value)})
 
-      $.ajax({
-        url: "/weather",
-        type: "GET",
-        data: {
-          durationOfTripInSeconds: durationOfTripInSeconds,
-          startLat: startLat,
-          startLong: startLong,
-          endLat: endLat,
-          endLong: endLong
-        },
-        dataType: "json"
-      }).done(function(data){
-        console.log(data);
-
-          var myfirstdata = $('<p>').text("The starting weather is: " +
-            data["first_condition"]+ ", " +
-            data["first_temp"]["english"] + " F, " +
-            data["first_percent_of_percip"] + " percent chance of rain, " +
-            data["first_rain"]["english"] + " inches of percipitation accumulation, " +
-            data["first_snow"]["english"] + " inches of snow.")
-
-          var mylastdata = $('<p>').text("The predicted destination weather is: " +
-            data["last_condition"]+ ", " +
-            data["last_temp"]["english"] + " F, " +
-            data["last_percent_of_percip"] + " percent chance of rain, " +
-            data["last_rain"]["english"] + " inches of percipitation accumulation, " +
-            data["last_snow"]["english"] + " inches of snow.")
-
-          $('.weather').append(myfirstdata)
-          $('.weather').append(mylastdata)
 
 
-
-      });
-debugger
       if (!results) return;
       $(this).gmap3({
         map:{
@@ -165,6 +157,38 @@ debugger
 
 });
 
+window.getWeather = function(coordinates, secondsFromNow) {
+  $.ajax({
+    url: "/weather",
+    type: "GET",
+    data: {
+      lat:            coordinates.lat,
+      long:           coordinates.long,
+      secondsFromNow: secondsFromNow,
+      order:          0
+    },
+    dataType: "json"
+  }).done(printForecast);
+}
+
+window.printForecast = function(forecast) {
+  var text = "At hour " + forecast.hours_from_now +
+             " the forecast is: " + forecast.temp.english + "°F " +
+             " and " + forecast.condition.toLowerCase() + ".";
+
+  // TODO: make the precipitation values conditional
+  // forecast.rain
+  // forecast.snow
+
+  text += " There is " + forecast.precip + "% chance of precipitation."
+
+  $('<p>').text(text).appendTo('.weather');
+  // insert after
+}
+
+window.coordinatesOf = function(location) {
+  return {lat: location.k, long: location.D};
+}
 
   </script>
 

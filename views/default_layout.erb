@@ -37,12 +37,12 @@
 
 
 
-  <div class="navbar pretty" id="nav1" gumby-fixed="top">
+  <div class="navbar pretty"  gumby-fixed="top">
     <!-- Toggle for mobile navigation, targeting the <ul> -->
     <a class="toggle" gumby-trigger="#nav1 > ul" href="#"><i class="icon-menu"></i></a>
     <h1 class="two columns logo">
       <a href="#">
-        <img src="/img/drive_safely_sign.gif" gumby-retina />
+        <img src="/img/drive_safely_sign.png" gumby-retina />
       </a>
     </h1>
     <div class="push_two five columns">
@@ -60,7 +60,7 @@
           Origin: <input class="narrow input" type="text" id="origin"  placeholder="Boston, MA" name="origin">
           Destination: <input class="narrow input" type="text" id="destination" placeholder="General Assembly, NY" name="destination">
 
-        <div class="pretty medium default btn">
+        <div class="medium oval default btn">
           <input type="submit" id="directions-submit" value="  Submit  ">
         </div>
         <div class="medium oval default btn">
@@ -100,6 +100,10 @@ $("#direction_inputs").on("submit", function(e){
       var startLong = results.routes[0].legs[0].steps[0]["start_location"]["D"];
       var endLat  = results.routes[0].legs[0]["end_location"]["k"];
       var endLong = results.routes[0].legs[0]["end_location"]["D"];
+
+//       steps.forEach(function(step){
+// console.log(step.duration.value)})
+
       $.ajax({
         url: "/weather",
         type: "GET",
@@ -131,8 +135,10 @@ $("#direction_inputs").on("submit", function(e){
           $('.weather').append(myfirstdata)
           $('.weather').append(mylastdata)
 
+
+
       });
-// debugger
+debugger
       if (!results) return;
       $(this).gmap3({
         map:{

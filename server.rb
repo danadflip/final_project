@@ -43,7 +43,9 @@ module Drive
         end
 
       # binding.pry
+# every hour/hour and a half of trip time have a forecast call = once you have the total number of forecasts -
 
+# at this point the duration is above
 
       # weather conditions:
       last_condition = last_response_by_city["hourly_forecast"][duration_converted]["condition"]

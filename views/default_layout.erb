@@ -1,5 +1,3 @@
-<!-- API Key AIzaSyCe5m91hCqrxhyBf2MkUQbUrIZxkB7t99k -->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -157,15 +155,15 @@ $("#direction_inputs").on("submit", function(e){
 
 });
 
-window.getWeather = function(coordinates, secondsFromNow) {
+window.getWeather = function(coordinates, secondsFromNow, order) {
   $.ajax({
     url: "/weather",
     type: "GET",
     data: {
       lat:            coordinates.lat,
       long:           coordinates.long,
-      secondsFromNow: secondsFromNow,
-      order:          0
+      secondsFromNow: secondsFromNow
+      // order:          order
     },
     dataType: "json"
   }).done(printForecast);
@@ -179,12 +177,15 @@ window.printForecast = function(forecast) {
   // TODO: make the precipitation values conditional
   // forecast.rain
   // forecast.snow
-
+// debugger
   text += " There is " + forecast.precip + "% chance of precipitation."
 
   $('<p>').text(text).appendTo('.weather');
+  // $('p').sort()
   // insert after
 }
+
+
 
 window.coordinatesOf = function(location) {
   return {lat: location.k, long: location.D};

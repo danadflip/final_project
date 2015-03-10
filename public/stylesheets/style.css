@@ -96,8 +96,8 @@ html{
 
 .navagation_menu{
   position: relative;
-  right: 10px;
-  margin-left: 55em;
+  /*right: 10px;*/
+  margin-left: 45em;
   /*margin-top: 1em;*/
   /*border: 1px solid black;*/
   width: 25%;
@@ -117,9 +117,17 @@ left: 100px;
 }
 
 
+.icon{
+  /*border: 1px solid black;*/
+  /*left: 50px;*/
+  color: white;
+  text-shadow: 0 1px 2px #0d89b0, 0 1px 0 #0d89b0;
+}
 
-
-
+.row{
+  /*border: 1px solid green;*/
+  left: 0px;
+}
 
 
 

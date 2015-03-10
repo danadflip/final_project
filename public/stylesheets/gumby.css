@@ -745,7 +745,7 @@ abbr { text-transform: none; }
 .row .row { min-width: 0; padding-left: 0; padding-right: 0; }
 
 /* To fix the grid into a different size, set max-width to your desired width */
-.column, .columns { margin-left: 2.12766%; float: left; min-height: 1px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.column, .columns { margin-left: 8%; float: left; min-height: 1px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 .column:first-child, .columns:first-child, .alpha { margin-left: 0; }
 
@@ -1247,7 +1247,7 @@ img { -ms-interpolation-mode: bicubic; }
   .navbar a.toggle:hover { background: #4bcaf2; }
   .navbar a.toggle:active, .navbar a.toggle.active { background: #1bbcee; } }
 
-.navbar .logo { display: inline-block; margin: 0 2.12766% 0 0; padding: 0; height: 40px; line-height: 58px; }
+.navbar .logo { display: inline-block;  margin: 8 0 0 0; padding: 0; height: 40px; line-height: 58px; }
 .navbar .logo a { display: block; padding: 0; overflow: hidden; height: 80px; line-height: 58px; }
 .navbar .logo a img { max-height: 100%; }
 @media only screen and (max-width: 767px) { .navbar .logo { float: left; display: inline; }

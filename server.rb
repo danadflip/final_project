@@ -24,40 +24,40 @@ module Drive
       ).to_json
     end
 
-#{ENV["WEATHER_UNDERGROUND_API"]}
+
 
     def get_weather_at(lat, long, seconds_from_now)
-      # url    = "http://api.wunderground.com/api/KEY/hourly/q"
-      # params = "/#{lat},#{long}.json"
+      url    = "http://api.wunderground.com/api/" + ENV["WEATHER_UNDERGROUND_API"] +"/hourly/q"
+      params = "/#{lat},#{long}.json"
 
-      # wu_api_response = HTTParty.get(url+params)
+      wu_api_response = HTTParty.get(url+params)
 
-      # hours_from_now = seconds_from_now/3600
-      # # api only gives 35 hour forecast
-      # hours_from_now = 35 if hours_from_now > 35
+      hours_from_now = seconds_from_now/3600
+      # api only gives 35 hour forecast
+      hours_from_now = 35 if hours_from_now > 35
 
 
 
       # return a hash of weather conditions
-      # {
-      #   hours_from_now: hours_from_now,
-      #   condition:      wu_api_response["hourly_forecast"][hours_from_now]["condition"],
-      #   temp:           wu_api_response["hourly_forecast"][hours_from_now]["temp"],
-      #   snow:           wu_api_response["hourly_forecast"][hours_from_now]["snow"],
-      #   rain:           wu_api_response["hourly_forecast"][hours_from_now]["qpf"],
-      #   precip:         wu_api_response["hourly_forecast"][hours_from_now]["pop"]
-      #   # order:          order
-      # }
-
-            {
-        hours_from_now: 10,
-        condition:      "Cloudy",
-        temp:           45,
-        snow:           4,
-        rain:           3,
-        precip:         30
+      {
+        hours_from_now: hours_from_now,
+        condition:      wu_api_response["hourly_forecast"][hours_from_now]["condition"],
+        temp:           wu_api_response["hourly_forecast"][hours_from_now]["temp"],
+        snow:           wu_api_response["hourly_forecast"][hours_from_now]["snow"],
+        rain:           wu_api_response["hourly_forecast"][hours_from_now]["qpf"],
+        precip:         wu_api_response["hourly_forecast"][hours_from_now]["pop"]
         # order:          order
       }
+
+      #       {
+      #   hours_from_now: 10,
+      #   condition:      "Cloudy",
+      #   temp:           45,
+      #   snow:           4,
+      #   rain:           3,
+      #   precip:         30
+      #   # order:          order
+      # }
 
 
     end

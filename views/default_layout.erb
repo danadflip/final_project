@@ -9,7 +9,9 @@
 
   <link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" media="all">
   <link href="/stylesheets/style.css" rel="stylesheet" type="text/css" media="all">
-  <link href="/stylesheets/skeleton.css" rel="stylesheet" type="text/css" media="all"
+  <link href="/stylesheets/skeleton.css" rel="stylesheet" type="text/css" media="all">
+
+  <link rel="icon" type="image/png" href="/img/favicon-32.png">
 
 <!-- gumby style/js -->
   <link href="/stylesheets/gumby.css" rel="stylesheet" type="text/css" media="all">
@@ -48,7 +50,7 @@
       <!-- Drive Safe.ly -->
       <div class="icon">
       <a class="logo_link" href="#">
-        <img id="logo_pic" src="/img/white_corrected_sign_text.png" gumby-retina />
+        <img id="logo_pic" src="/img/corrected_new_sign.png" gumby-retina />
       </a>
     </div>
     </h3>
@@ -146,7 +148,7 @@ $("#direction_inputs").on("submit", function(e){
             }
           }
           getWeather(coordinatesOf(trip.end_location), trip.duration.value)
-
+// debugger
 //       steps.forEach(function(step){
 // console.log(step.duration.value)})
 
@@ -202,8 +204,10 @@ window.printForecast = function(forecast) {
   // forecast.snow
 // debugger
   text += " There is " + forecast.precip + "% chance of precipitation."
+  text += " There will be " + forecast.rain.english + " in. of accumulated rain fall"
+  text += " and " + forecast.snow.english + " in. of accumulated snow fall. "
 
-  $('<p>').text(text).appendTo('.weather');
+  $('<p style="padding:15px">').text(text).appendTo('.weather');
   // $('p').sort()
   // insert after
 }

@@ -6,8 +6,9 @@ html{
 .weather{
   float: right;
   position:relative;
-  top:30em;
+  top:18em;
   width:50% ;
+  /*border: 1px solid black;*/
 }
 
 .last_weather{
@@ -96,9 +97,7 @@ html{
 
 .navagation_menu{
   position: relative;
-  /*right: 10px;*/
   margin-left: 45em;
-  /*margin-top: 1em;*/
   /*border: 1px solid black;*/
   width: 25%;
   padding: 7px;

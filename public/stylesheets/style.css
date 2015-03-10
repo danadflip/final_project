@@ -71,16 +71,61 @@ html{
   background-color: white;
   height:15%;
   top: 15%;
-  /*border: 1px solid black;*/
+  /*border: 1px solid red;*/
 }
-/*#direction_inputs{
+#direction_inputs{
+  position: relative;
   padding: 5px;
   margin: 5px;
-}*/
+  width: 70%;
+  left: 20%;
+  /*border: 1px solid green;*/
+}
+
+.direction_inputs{
+  /*display:inline-block;*/
+  position:relative;
+  width: 30%;
+  border: 1px solid black;
+
+}
+
+ /* ========================= */
+  /* Gumby Navagation Bar */
+  /* ========================= */
+
+.navagation_menu{
+  position: relative;
+  right: 10px;
+  margin-left: 55em;
+  /*margin-top: 1em;*/
+  /*border: 1px solid black;*/
+  width: 25%;
+  padding: 7px;
+  font-weight: bold;
+  /*font-size: 120%;*/
+}
+
+
+
+.logo_link{
+/*border: 1px solid black;*/
+width: 30%;
+/*height: 15px;*/
+left: 100px;
+
+}
+
+
+
+
+
+
+
 
 
  /* ========================= */
-  /* Navagation Bar */
+  /* My Navagation Bar */
   /* ========================= */
 
 /*nav{
@@ -93,9 +138,9 @@ html{
   /*border-style: solid;*/
   /*background-color: grey;*/
 /*}*/
+/*
 
-
-/*.logo{
+.logo{
   display: inline-block;
   width: 49%;
 
@@ -106,9 +151,9 @@ html{
   color: black;
 }
 .menu{
- /* position: relative;
-  right: 10px;*/
-   /*margin-left: 7em;
+  position: relative;
+  right: 10px;
+   margin-left: 7em;
   margin-top: 1em;
   color:white;
 }
@@ -135,4 +180,5 @@ html{
 h1{
 
   color:white;
-}*/
+}
+*/

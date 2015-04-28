@@ -64,7 +64,6 @@
   <div class ="weather"></div>
   <div class = "last_weather"></div>
 
-
   <script>
     $("#direction_inputs").on("submit", function(e){
       e.preventDefault();
@@ -79,7 +78,7 @@
             origin: $origin,
             destination:$destination,
             travelMode: google.maps.DirectionsTravelMode.DRIVING
-        },
+      },
       callback: function(results){
         var trip                    = results.routes[0].legs[0],
             durationOfTripInSeconds = trip.duration.value,
@@ -149,16 +148,22 @@
     }
 
     window.printForecast = function(forecast) {
-      var text = "In " + forecast.city +
-                 ", " + forecast.hours_from_now + " hours into your trip," +
-                 " the forecast is: " + forecast.temp.english + "°F " +
+      var text = forecast.city +
+                 ", hour " + forecast.hours_from_now + " of the trip," +
+                 " forecast: " + forecast.temp.english + "°F " +
                  " and " + forecast.condition.toLowerCase() + ".";
 
       // TODO: make the precipitation values conditional
-      text += " There is " + forecast.precip + "% chance of precipitation."
-      text += " There will be " + forecast.rain.english + " in. of accumulated rain fall"
-      text += " and " + forecast.snow.english + " in. of accumulated snow fall. "
-      $('<p style="padding:15px">').text(text).appendTo('.weather');
+        if (forecast.precip > 0){
+          text += " There is " + forecast.precip + "% chance of precipitation."
+        };
+        if (forecast.rain.english > 0){
+          text += " There will be " + forecast.rain.english + " in. of accumulated rain fall"
+        };
+        if (forecast.snow.english > 0){
+          text += " and " + forecast.snow.english + " in. of accumulated snow fall. "
+        };
+        $('<p style="padding:15px">').text(text).appendTo('.weather');
       // $('p').sort()
       // insert after
       }

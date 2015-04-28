@@ -25,12 +25,13 @@ module Drive
     end
 
 
-
     def get_weather_at(lat, long, seconds_from_now)
       url    = "http://api.wunderground.com/api/" + ENV["WEATHER_UNDERGROUND_API"] +"/hourly/q"
       params = "/#{lat},#{long}.json"
 
+      url_2 = "http://api.wunderground.com/api/" + ENV["WEATHER_UNDERGROUND_API"] +"/geolookup/q"
       wu_api_response = HTTParty.get(url+params)
+      wu_api_city_response = HTTParty.get(url_2 + params)
 
       hours_from_now = seconds_from_now/3600
       # api only gives 35 hour forecast
@@ -45,7 +46,8 @@ module Drive
         temp:           wu_api_response["hourly_forecast"][hours_from_now]["temp"],
         snow:           wu_api_response["hourly_forecast"][hours_from_now]["snow"],
         rain:           wu_api_response["hourly_forecast"][hours_from_now]["qpf"],
-        precip:         wu_api_response["hourly_forecast"][hours_from_now]["pop"]
+        precip:         wu_api_response["hourly_forecast"][hours_from_now]["pop"],
+        city:           wu_api_city_response["location"]["city"]
         # order:          order
       }
 
@@ -58,8 +60,6 @@ module Drive
       #   precip:         30
       #   # order:          order
       # }
-
-
     end
   end
 end

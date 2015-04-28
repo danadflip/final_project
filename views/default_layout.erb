@@ -149,8 +149,8 @@
     }
 
     window.printForecast = function(forecast) {
-      var text = "When you will be in " + forecast.city +
-                 " (at hour " + forecast.hours_from_now + " of your trip)" +
+      var text = "In " + forecast.city +
+                 ", " + forecast.hours_from_now + " hours into your trip," +
                  " the forecast is: " + forecast.temp.english + "°F " +
                  " and " + forecast.condition.toLowerCase() + ".";
 
